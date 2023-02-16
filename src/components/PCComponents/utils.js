@@ -1,0 +1,1 @@
+import { Loading } from 'element-ui'let u = {}let loadingInstance = nullu.showLoading = function() {  loadingInstance = Loading.service({ fullscreen: true })}u.hideLoading = function() {  loadingInstance && loadingInstance.close()  loadingInstance = null}export default u

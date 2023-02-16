@@ -1,0 +1,41 @@
+<template>
+  <div class="h5Layout">
+    <!-- ҳͷ -->
+    <HeadsEn />
+    <div class="slot">
+      <slot></slot>
+    </div>
+    <!-- ҳβ -->
+    <FooterIndexEn />
+  </div>
+</template>
+
+<script>
+import HeadsEn from '@/components/header/H5/HeadsEn.vue'
+import FooterIndexEn from '@/components/header/H5/FooterIndexEn.vue'
+export default {
+  name: 'H5LayoutEn',
+  components: {
+    HeadsEn,
+    FooterIndexEn,
+  },
+}
+</script>
+
+<style lang="scss" scoped>
+.h5Layout {
+  padding-top: 1.2rem;
+  max-width: 7.5rem;
+  min-height: 100vh;
+  margin: auto;
+  position: relative;
+  // overflow-y: hidden;
+}
+.slot {
+  padding-bottom: 2.57rem;
+}
+::v-deep .footer-index {
+  position: absolute;
+  bottom: 0;
+}
+</style>
