@@ -1,1 +1,55 @@
-<template>  <div class="test-videojs" v-if="url">    <video id="videoPlayer" ref="myVideo" class="video-js" muted></video>  </div></template><script>import Videojs from 'video.js' // ÒıÈëVideojsexport default {  data() {    return {      nowPlayVideoUrl: 'https://live.yihtc.com/hls/stream_12/stream_12_live.m3u8',      vPlayer: null,    }  },  props: {    url: {      type: String,      default: '',    },  },  mounted() {    this.initVideo(this.url)  },  destroyed() {    this.vPlayer.dispose()  },  methods: {    initVideo(nowPlayVideoUrl) {      // ÕâĞ©optionsÊôĞÔÒ²¿ÉÖ±½ÓÉèÖÃÔÚvideo±êÇ©ÉÏ£¬¼û muted      let options = {        autoplay: true, // ÉèÖÃ×Ô¶¯²¥·Å        controls: true, // ÏÔÊ¾²¥·ÅµÄ¿Ø¼ş        sources: [          // ×¢Òâ£¬Èç¹ûÊÇÒÔoption·½Ê½ÉèÖÃµÄsrc,ÊÇ²»ÄÜÊµÏÖ »»Ì¨µÄ (¼´Ê¹¼àÌıÁËnowPlayVideoUrlÒ²Ã»ÊµÏÖ)          {            src: nowPlayVideoUrl,            type: 'application/x-mpegURL', // ¸æËßvideojs,ÕâÊÇÒ»¸öhlsÁ÷          },        ],      }      // videojsµÄµÚÒ»¸ö²ÎÊı±íÊ¾µÄÊÇ£¬ÎÄµµÖĞvideoµÄid      this.vPlayer = Videojs('videoPlayer', options, function onPlayerReady() {        //  console.log(myPlyer === this) // ÕâÀï·µ»ØµÄÊÇtrue      })    },  },}</script><style lang="scss" scoped>#videoPlayer {  width: 100%;  height: 3.87rem;  margin: 50px auto;}</style>
+<template>
+  <div class="test-videojs" v-if="url">
+    <video id="videoPlayer" ref="myVideo" class="video-js" muted></video>
+  </div>
+</template>
+<script>
+import Videojs from 'video.js' // å¼•å…¥Videojs
+export default {
+  data() {
+    return {
+      nowPlayVideoUrl: 'https://live.yihtc.com/hls/stream_12/stream_12_live.m3u8',
+      vPlayer: null,
+    }
+  },
+  props: {
+    url: {
+      type: String,
+      default: '',
+    },
+  },
+  mounted() {
+    this.initVideo(this.url)
+  },
+  destroyed() {
+    this.vPlayer.dispose()
+  },
+  methods: {
+    initVideo(nowPlayVideoUrl) {
+      // è¿™äº›optionså±æ€§ä¹Ÿå¯ç›´æ¥è®¾ç½®åœ¨videoæ ‡ç­¾ä¸Šï¼Œè§ muted
+      let options = {
+        autoplay: true, // è®¾ç½®è‡ªåŠ¨æ’­æ”¾
+        controls: true, // æ˜¾ç¤ºæ’­æ”¾çš„æ§ä»¶
+        sources: [
+          // æ³¨æ„ï¼Œå¦‚æœæ˜¯ä»¥optionæ–¹å¼è®¾ç½®çš„src,æ˜¯ä¸èƒ½å®ç° æ¢å°çš„ (å³ä½¿ç›‘å¬äº†nowPlayVideoUrlä¹Ÿæ²¡å®ç°)
+          {
+            src: nowPlayVideoUrl,
+            type: 'application/x-mpegURL', // å‘Šè¯‰videojs,è¿™æ˜¯ä¸€ä¸ªhlsæµ
+          },
+        ],
+      }
+      // videojsçš„ç¬¬ä¸€ä¸ªå‚æ•°è¡¨ç¤ºçš„æ˜¯ï¼Œæ–‡æ¡£ä¸­videoçš„id
+      this.vPlayer = Videojs('videoPlayer', options, function onPlayerReady() {
+        //  console.log(myPlyer === this) // è¿™é‡Œè¿”å›çš„æ˜¯true
+      })
+    },
+  },
+}
+</script>
+<style lang="scss" scoped>
+#videoPlayer {
+  width: 100%;
+  height: 3.87rem;
+  margin: 50px auto;
+}
+</style>
