@@ -1,1 +1,9 @@
-/* Components */import Vue from 'vue'// 全局注册组件const components = import.meta.globEager('./myComponents/*.vue')Object.keys(components).forEach(key => {  let component = components[key].default  Vue.component(component.name, component)})
+/* Components */
+import Vue from 'vue'
+
+// 鍏ㄥ眬娉ㄥ唽缁勪欢
+const components = import.meta.globEager('./myComponents/*.vue')
+Object.keys(components).forEach(key => {
+  let component = components[key].default
+  Vue.component(component.name, component)
+})
