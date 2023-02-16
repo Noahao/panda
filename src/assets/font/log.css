@@ -1,0 +1,15 @@
+@font-face {
+  /* 繁体字 */
+  font-family: 'MSYH';
+  src: url('https://file.daqsoft.com/ued/geek-icon/font/fanti.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  /* 重命名字体名 */
+  font-family: 'Edwardian Script ITC';
+  /* 引入字体 */
+  src: url('@/assets/font/ITCEDSCR.TTF');
+  font-weight: normal;
+  font-style: normal;
+}
